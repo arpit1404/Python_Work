@@ -1,0 +1,19 @@
+# import statements
+from scipy.stats import ttest_1samp
+import numpy as np
+Import pandas as pd
+# reading the file
+file = r'C:\Documents\movie.xls'
+movie_facebook_likes = pd.read_excel(file)
+print(movie_facebook_likes)
+# Calculating the mean values
+movie_facebook_likes_mean = np.mean(movie_facebook_likes)
+print(movie_facebook_likes_mean)
+# using T test for hypothesis testing
+tset, pval = ttest_1samp(movie_facebook_likes_mean, 5000)
+print(pval)
+# pval helps in identifying the we need to accept null hypothesis
+if pval < 0.05:    # alpha value is 0.05 or 5%
+   print(" we are rejecting null hypothesis")
+else:
+  print("we are accepting null hypothesis")
